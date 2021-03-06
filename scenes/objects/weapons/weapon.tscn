@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/fx/trail.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/objects/weapons/weapon.gd" type="Script" id=2]
+[ext_resource path="res://scenes/sprites/weapons.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 1, 1, 1, 0.164829, 0.498039, 0.498039, 0.498039, 0.470588 )
+
+[node name="Weapon" type="RigidBody2D"]
+collision_layer = 262145
+collision_mask = 1022
+gravity_scale = 1.5
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 2 )
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+
+[node name="Sprite" parent="." instance=ExtResource( 3 )]
+
+[node name="Trail" parent="." instance=ExtResource( 1 )]
+z_index = 1
+gradient = SubResource( 1 )
+targetPath = NodePath("..")
+trailLength = 15
+[connection signal="body_shape_entered" from="." to="." method="_on_Weapon_body_shape_entered"]
+[connection signal="sleeping_state_changed" from="." to="." method="_on_Weapon_sleeping_state_changed"]

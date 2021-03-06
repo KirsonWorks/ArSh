@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/fx/particle_collision.tscn" type="PackedScene" id=1]
+[ext_resource path="res://textures/fx/gibs.png" type="Texture" id=2]
+[ext_resource path="res://textures/fx/blood.png" type="Texture" id=3]
+[ext_resource path="res://particles/blood.tres" type="Material" id=4]
+[ext_resource path="res://scripts/fx/gibs.gd" type="Script" id=5]
+
+[node name="CollisionParticle" instance=ExtResource( 1 )]
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 5 )
+
+[node name="Particles" parent="." index="1"]
+visible = true
+lifetime = 0.4
+explosiveness = 0.6
+draw_order = 0
+process_material = ExtResource( 4 )
+texture = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="2"]
+texture = ExtResource( 2 )

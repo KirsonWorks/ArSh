@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://textures/fx/blood.png" type="Texture" id=1]
+[ext_resource path="res://scripts/fx/tilemap_decals.gd" type="Script" id=2]
+[ext_resource path="res://tiles/platform.tres" type="TileSet" id=3]
+
+[node name="TileMapDecals" type="TileMap"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 32, 32 )
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+collision_use_kinematic = true
+format = 1
+script = ExtResource( 2 )
+
+[node name="VC" type="ViewportContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1280.0
+margin_bottom = 768.0
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VP" type="Viewport" parent="VC"]
+size = Vector2( 1280, 768 )
+transparent_bg = true
+handle_input_locally = false
+hdr = false
+disable_3d = true
+usage = 0
+render_target_clear_mode = 1
+render_target_update_mode = 3
+gui_disable_input = true
+
+[node name="Decal" type="Sprite" parent="VC/VP"]
+position = Vector2( -50, -50 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )

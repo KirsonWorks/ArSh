@@ -1,0 +1,11 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://fonts/jura/static/Jura-Bold.ttf" type="DynamicFontData" id=1]
+
+[resource]
+size = 39
+use_mipmaps = true
+extra_spacing_bottom = 2
+extra_spacing_char = 8
+extra_spacing_space = 12
+font_data = ExtResource( 1 )

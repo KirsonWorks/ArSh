@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/objects/weapons/weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://textures/weapons.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7, 1 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 3, 5 )
+
+[node name="Axe" instance=ExtResource( 1 )]
+damage = 100
+weapon_name = "Axe"
+stab_times = 3
+
+[node name="Shape" parent="." index="0"]
+position = Vector2( 0, -1 )
+scale = Vector2( 1, 1.25 )
+shape = SubResource( 1 )
+
+[node name="Shape2" type="CollisionShape2D" parent="." index="1"]
+position = Vector2( 4, 1 )
+shape = SubResource( 2 )
+
+[node name="Sprite" parent="." index="2"]
+texture = ExtResource( 2 )
+vframes = 2
+hframes = 2
+frame = 1
